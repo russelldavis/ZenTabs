@@ -147,10 +147,7 @@ class ZenTabsListener(sublime_plugin.EventListener):
 
             if view:
                 if not view.is_dirty() and not view.is_scratch():
-                    active_window.focus_view(view)
-                    active_window.run_command('close')
-                    if win_tabs.get_view_by_id(active_view_id):
-                        active_window.focus_view(win_tabs.get_view_by_id(active_view_id))
+                    view.close()
                 else:
                     win_tabs.edited_tab_ids.append(view_id)
 
